@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شادی خانہ آبادی — ذیشان و مصباح (Z &amp; M)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Great+Vibes&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ivory: #fcf9f4;
+      --ivory-card: #fffdf9;
+      --sand: #f4ece0;
+      --burgundy: #5c111e;
+      --burgundy-deep: #3d0912;
+      --emerald-deep: #0e382c;
+      --blush: #e8b4b8;
+      --gold: #c89d54;
+      --gold-soft: #e6cfa3;
+      --gold-bright: #fcf6ba;
+      --gold-dark: #8c6628;
+      --ink: #2c1d18;
+      --muted: #766158;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #271513 0%, #140a09 100%);
+      font-family: 'Noto Nastaliq Urdu', 'Cormorant Garamond', serif;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .font-script { font-family: 'Great Vibes', cursive; }
+    .font-serif-lux { font-family: 'Cormorant Garamond', serif; }
+    .font-arabic { font-family: 'Amiri', serif; }
+
+    /* Main Minimalist Luxury Container */
+    .card-shell {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      background-color: var(--ivory);
+      background-image: radial-gradient(circle at 50% 0%, rgba(200, 157, 84, 0.12) 0%, transparent 60%);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
+      overflow-x: hidden;
+    }
+
+    /* Fine Hairline Perimeter Frame */
+    .hairline-frame {
+      position: fixed;
+      top: 12px;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      max-width: 416px;
+      border: 1px solid rgba(200, 157, 84, 0.45);
+      border-radius: 22px;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    /* Continuous Flower Petals & Hearts Shower Canvas */
+    #celebrationCanvas {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      height: 100dvh;
+      pointer-events: none;
+      z-index: 45;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    #celebrationCanvas.active {
+      opacity: 1;
+    }
+
+    /* =========================================================
+       1. ULTRA-ORNATE ROYAL MUGHAL-PALACE ENVELOPE
+    ========================================================= */
+    #envelopeOverlay {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      height: 100dvh;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 44px 22px 34px;
+      perspective: 1700px;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(126, 20, 42, 0.96) 0%, #380710 58%, #150206 100%);
+      box-shadow: inset 0 0 110px rgba(8, 1, 3, 0.88);
+      overflow: hidden;
+      transition: opacity 0.95s ease, visibility 0.95s ease;
+    }
+
+    #envelopeOverlay.dismissed {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Emerald-and-Burgundy Silk Velvet Inner Liner Revealed on Unfolding */
+    .velvet-liner {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 50% 48%, rgba(14, 72, 54, 0.62) 0%, rgba(14, 56, 44, 0.25) 45%, transparent 74%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68' viewBox='0 0 68 68'%3E%3Cg fill='none' stroke='%23fcf6ba' stroke-opacity='0.2' stroke-width='0.9'%3E%3Cpath d='M34 4 L43 25 L64 34 L43 43 L34 64 L25 43 L4 34 L25 25 Z'/%3E%3Ccircle cx='34' cy='34' r='10'/%3E%3Ccircle cx='34' cy='34' r='2.5' fill='%23c89d54' fill-opacity='0.45'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(rgba(230, 207, 163, 0.2) 1px, transparent 1px);
+      background-size: 100% 100%, 68px 68px, 20px 20px;
+      opacity: 0.96;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating Golden Heart & Sparkle Motes Canvas */
+    #envGoldDust {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 11;
+      transition: opacity 0.45s ease;
+    }
+
+    /* Silk-Jacquard Flaps with Scalloped Mughal Arch Top Flap */
+    .env-flap {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      transition: transform 1.15s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.95s ease;
+      pointer-events: none;
+    }
+
+    .env-flap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.42;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%239b6e24' stroke-opacity='0.42' stroke-width='0.85'%3E%3Cpath d='M36 4 L46 26 L68 36 L46 46 L36 68 L26 46 L4 36 L26 26 Z'/%3E%3Cpath d='M36 14 L58 36 L36 58 L14 36 Z'/%3E%3Ccircle cx='36' cy='36' r='7.5'/%3E%3Ccircle cx='36' cy='36' r='2' fill='%23c89d54' fill-opacity='0.5'/%3E%3C/g%3E%3C/svg%3E"),
+        repeating-linear-gradient(45deg, rgba(200, 157, 84, 0.18) 0px, rgba(200, 157, 84, 0.18) 1px, transparent 1px, transparent 12px);
+      background-size: 72px 72px, auto;
+    }
+
+    .env-flap-top {
+      background: radial-gradient(circle at 50% 18%, #fffef9 0%, #f7ead6 52%, #dfc192 100%);
+      clip-path: path('M 0 0 L 440 0 L 440 165 Q 345 315 220 432 Q 95 315 0 165 Z');
+      transform-origin: 50% 0%;
+      filter: drop-shadow(0 18px 34px rgba(24, 3, 7, 0.62));
+      z-index: 5;
+    }
+
+    /* Fallback polygon for viewports wider/narrower than 440px via SVG overlay */
+    @supports not (clip-path: path('M 0 0 L 10 10 Z')) {
+      .env-flap-top {
+        clip-path: polygon(0 0, 100% 0, 100% 21%, 50% 54%, 0 21%);
+      }
+    }
+
+    .env-flap-bottom {
+      background: radial-gradient(circle at 50% 82%, #fffdf8 0%, #f3e2c8 56%, #d9bc8d 100%);
+      clip-path: polygon(0 100%, 100% 100%, 50% 47%);
+      transform-origin: 50% 100%;
+      filter: drop-shadow(0 -10px 24px rgba(24, 3, 7, 0.36));
+      z-index: 4;
+    }
+
+    .env-flap-left {
+      background: linear-gradient(90deg, #fdf8ee 0%, #efdec2 68%, #d7ba8b 100%);
+      clip-path: polygon(0 0, 51% 50%, 0 100%);
+      filter: drop-shadow(8px 0 20px rgba(24, 3, 7, 0.28));
+      z-index: 3;
+    }
+
+    .env-flap-right {
+      background: linear-gradient(270deg, #fdf8ee 0%, #efdec2 68%, #d7ba8b 100%);
+      clip-path: polygon(100% 0, 49% 50%, 100% 100%);
+      filter: drop-shadow(-8px 0 20px rgba(24, 3, 7, 0.28));
+      z-index: 3;
+    }
+
+    /* Artistic Mughal Arch Gold Foil, Pearl Dots & Watercolor Botanical SVG Layer */
+    .env-art-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+      pointer-events: none;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .botanical-bloom {
+      transform-origin: center;
+      animation: botanicalSway 6s ease-in-out infinite alternate;
+    }
+
+    .latkan-sway {
+      transform-box: fill-box;
+      transform-origin: 50% 0%;
+      animation: latkanPendulum 3.8s ease-in-out infinite alternate;
+    }
+
+    .latkan-sway-delay {
+      transform-box: fill-box;
+      transform-origin: 50% 0%;
+      animation: latkanPendulum 4.2s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes latkanPendulum {
+      0% { transform: rotate(-4deg); }
+      100% { transform: rotate(4deg); }
+    }
+
+    @keyframes botanicalSway {
+      0% { transform: scale(1) rotate(-0.8deg); }
+      100% { transform: scale(1.02) rotate(0.8deg); }
+    }
+
+    /* 3D Unfolding Transitions */
+    #envelopeOverlay.opening .env-art-svg,
+    #envelopeOverlay.opening .env-top-crest,
+    #envelopeOverlay.opening .env-bottom-plate {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    #envelopeOverlay.opening .env-flap-top {
+      transform: rotateX(176deg) translateY(-10%);
+      opacity: 0.16;
+    }
+    #envelopeOverlay.opening .env-flap-bottom {
+      transform: rotateX(-165deg) translateY(104%);
+      opacity: 0.2;
+    }
+    #envelopeOverlay.opening .env-flap-left { transform: translateX(-106%); }
+    #envelopeOverlay.opening .env-flap-right { transform: translateX(106%); }
+    #envelopeOverlay.opening .seal-wrapper { transform: scale(1.22); opacity: 0; }
+
+    /* Top Celestial Calligraphy Crest */
+    .env-top-crest {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 11px 28px 13px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 254, 250, 0.97) 0%, rgba(247, 235, 214, 0.94) 100%);
+      border: 1.5px solid #c89d54;
+      box-shadow:
+        0 12px 30px rgba(34, 3, 8, 0.24),
+        0 0 0 3.5px rgba(255, 253, 249, 0.72),
+        0 0 0 4.5px rgba(200, 157, 84, 0.55),
+        inset 0 1.5px 0 #ffffff;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .env-top-crest::before,
+    .env-top-crest::after {
+      content: "❁";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #a6626c;
+    }
+
+    .env-top-crest::before { right: 11px; }
+    .env-top-crest::after { left: 11px; }
+
+    /* Centerpiece Bespoke Hand-Sculpted Wax Seal with Miniature Royal Crown */
+    .seal-wrapper {
+      position: relative;
+      z-index: 12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.55s ease, opacity 0.55s ease;
+    }
+
+    .seal-sunburst-rays {
+      position: absolute;
+      width: 248px;
+      height: 248px;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(252, 246, 186, 0.34) 0deg 6deg,
+        transparent 6deg 18deg
+      );
+      -webkit-mask-image: radial-gradient(circle, black 35%, transparent 72%);
+      mask-image: radial-gradient(circle, black 35%, transparent 72%);
+      animation: orbitSpin 36s linear infinite;
+      pointer-events: none;
+    }
+
+    .seal-ambient-halo {
+      position: absolute;
+      width: 244px;
+      height: 244px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(252, 246, 186, 0.95) 0%, rgba(232, 180, 184, 0.35) 38%, rgba(200, 157, 84, 0.38) 54%, transparent 74%);
+      animation: haloBreath 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes haloBreath {
+      0%, 100% { transform: scale(0.93); opacity: 0.78; }
+      50% { transform: scale(1.13); opacity: 1; }
+    }
+
+    .seal-filigree-orbit {
+      position: absolute;
+      width: 178px;
+      height: 178px;
+      border-radius: 50%;
+      border: 1.4px dashed rgba(140, 102, 40, 0.8);
+      animation: orbitSpin 26s linear infinite;
+      pointer-events: none;
+    }
+
+    .seal-filigree-inner {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1.3px dotted rgba(92, 17, 30, 0.68);
+      animation: orbitSpinReverse 19s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes orbitSpinReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .wax-seal-btn {
+      position: relative;
+      width: 142px;
+      height: 142px;
+      border-radius: 46% 54% 48% 52% / 53% 47% 53% 47%;
+      border: 2.5px solid #f7e4b2;
+      background:
+        radial-gradient(circle at 28% 24%, #b82944 0%, #681020 48%, #3a0610 88%, #220207 100%);
+      box-shadow:
+        0 22px 46px rgba(34, 3, 8, 0.66),
+        0 0 0 6px rgba(92, 17, 30, 0.92),
+        0 0 0 9.5px #c89d54,
+        inset 0 4px 12px rgba(255, 242, 208, 0.68),
+        inset 0 -8px 18px rgba(18, 2, 5, 0.88);
+      color: #fcf6ba;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.25, 0.85, 0.25, 1), box-shadow 0.28s ease;
+    }
+
+    .wax-seal-btn::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1.5px dotted rgba(252, 246, 186, 0.92);
+      box-shadow: inset 0 0 0 3px rgba(200, 157, 84, 0.34);
+    }
+
+    .wax-seal-btn::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 55%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 248, 220, 0.5), transparent);
+      transform: rotate(25deg);
+      animation: sealGleam 3.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sealGleam {
+      0%, 50% { left: -75%; }
+      100% { left: 145%; }
+    }
+
+    .wax-seal-btn:hover {
+      transform: scale(1.06);
+      box-shadow:
+        0 26px 52px rgba(34, 3, 8, 0.74),
+        0 0 0 6px rgba(92, 17, 30, 0.95),
+        0 0 0 11px #e6cfa3,
+        inset 0 4px 14px rgba(255, 244, 214, 0.75);
+    }
+
+    .wax-seal-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Bottom Embossed Ivory-Silk Poetic Nameplate */
+    .env-bottom-plate {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      max-width: 336px;
+      text-align: center;
+      padding: 14px 18px 15px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 254, 250, 0.98) 0%, rgba(246, 234, 214, 0.95) 100%);
+      border: 1.5px solid #c89d54;
+      box-shadow:
+        0 16px 34px rgba(34, 3, 8, 0.28),
+        0 0 0 3px rgba(255, 253, 249, 0.68),
+        inset 0 0 0 3.5px rgba(200, 157, 84, 0.26),
+        inset 0 1px 0 #ffffff;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    /* =========================================================
+       2. SERENE MAIN CARD LAYOUT (COMPLETELY INTACT)
+    ========================================================= */
+    .main-flow {
+      padding: 36px 22px 64px;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s;
+    }
+
+    .main-flow.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Minimalist Royal Archway */
+    .royal-arch {
+      position: relative;
+      background: linear-gradient(180deg, var(--ivory-card) 0%, var(--sand) 100%);
+      border: 1px solid rgba(200, 157, 84, 0.65);
+      border-radius: 205px 205px 26px 26px;
+      padding: 46px 20px 30px;
+      text-align: center;
+      box-shadow: 0 14px 38px rgba(44, 29, 24, 0.06);
+    }
+
+    .royal-arch::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(200, 157, 84, 0.32);
+      border-radius: 198px 198px 20px 20px;
+      pointer-events: none;
+    }
+
+    .swans-float {
+      animation: gentleFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* Clean Content Cards */
+    .clean-section {
+      margin-top: 24px;
+      background: var(--ivory-card);
+      border: 1px solid rgba(200, 157, 84, 0.45);
+      border-radius: 22px;
+      padding: 26px 20px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(44, 29, 24, 0.04);
+    }
+
+    .hairline-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px auto 16px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .hairline-divider::before,
+    .hairline-divider::after {
+      content: "";
+      height: 1px;
+      width: 56px;
+      background: linear-gradient(90deg, transparent, rgba(200, 157, 84, 0.75), transparent);
+    }
+
+    /* =========================================================
+       3. CLEAN EVENT SWITCHER & SWIPE CAROUSEL
+    ========================================================= */
+    .segmented-tabs {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--sand);
+      border: 1px solid rgba(200, 157, 84, 0.55);
+      border-radius: 999px;
+      padding: 4px;
+      margin: 14px 0 16px;
+      box-shadow: inset 0 1px 3px rgba(44, 29, 24, 0.08);
+    }
+
+    .tab-pill {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: 4px;
+      width: calc(33.333% - 3px);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #14533c 0%, #1d7052 100%);
+      border: 1px solid rgba(252, 246, 186, 0.45);
+      box-shadow: 0 4px 12px rgba(20, 83, 60, 0.32);
+      transition: transform 0.35s cubic-bezier(0.25, 0.85, 0.25, 1), background 0.35s ease, box-shadow 0.35s ease;
+      z-index: 1;
+    }
+
+    .tab-pill.theme-mehndi {
+      background: linear-gradient(135deg, #14533c 0%, #1f7455 100%);
+      box-shadow: 0 4px 12px rgba(20, 83, 60, 0.34);
+    }
+
+    .tab-pill.theme-baraat {
+      background: linear-gradient(135deg, #7c1324 0%, #a31b32 100%);
+      box-shadow: 0 4px 12px rgba(124, 19, 36, 0.34);
+    }
+
+    .tab-pill.theme-valima {
+      background: linear-gradient(135deg, #163863 0%, #22518a 100%);
+      box-shadow: 0 4px 12px rgba(22, 56, 99, 0.34);
+    }
+
+    .tab-btn {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      padding: 7px 4px;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--burgundy);
+      cursor: pointer;
+      transition: color 0.25s ease, transform 0.2s ease;
+    }
+
+    .tab-btn[data-slide="0"] { color: #14533c; }
+    .tab-btn[data-slide="1"] { color: #7c1324; }
+    .tab-btn[data-slide="2"] { color: #163863; }
+
+    .tab-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .tab-btn.active {
+      color: #fffdf8;
+    }
+
+    .tab-btn.active svg {
+      transform: scale(1.12);
+    }
+
+    .swipe-viewport {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1.5px solid rgba(217, 119, 6, 0.65);
+      background: var(--ivory);
+      box-shadow: 0 10px 26px rgba(20, 83, 60, 0.12);
+      touch-action: pan-y;
+      cursor: grab;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .swipe-viewport.theme-mehndi {
+      border-color: rgba(217, 119, 6, 0.7);
+      box-shadow: 0 10px 26px rgba(20, 83, 60, 0.14);
+    }
+
+    .swipe-viewport.theme-baraat {
+      border-color: rgba(200, 157, 84, 0.75);
+      box-shadow: 0 10px 26px rgba(124, 19, 36, 0.14);
+    }
+
+    .swipe-viewport.theme-valima {
+      border-color: rgba(184, 137, 58, 0.7);
+      box-shadow: 0 10px 26px rgba(22, 56, 99, 0.14);
+    }
+
+    .swipe-viewport:active { cursor: grabbing; }
+
+    .swipe-track {
+      display: flex;
+      direction: ltr;
+      transition: transform 0.4s cubic-bezier(0.25, 0.85, 0.25, 1);
+    }
+
+    .event-slide {
+      position: relative;
+      min-width: 100%;
+      direction: rtl;
+      padding: 22px 16px 24px;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Bespoke Event Crest Medallion */
+    .event-crest-medallion {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.35s ease;
+    }
+
+    .event-crest-medallion::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 1px dashed currentColor;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* Event-Specific Luxury Themes */
+    .slide-mehndi {
+      background: radial-gradient(circle at top, #fffaf0 0%, #f1faf4 62%, #e2f3e8 100%);
+    }
+
+    .slide-mehndi .event-crest-medallion {
+      color: #d97706;
+      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fef3c7 65%, #fde68a 100%);
+      border: 1.5px solid #d97706;
+      box-shadow: 0 6px 16px rgba(20, 83, 60, 0.14), inset 0 0 0 2px rgba(20, 83, 60, 0.12);
+    }
+
+    .slide-mehndi .event-badge {
+      color: #14533c;
+      background: rgba(217, 119, 6, 0.15);
+      border-color: rgba(217, 119, 6, 0.65);
+    }
+
+    .slide-mehndi .event-title { color: #14533c; }
+    .slide-mehndi .event-time { color: #b45309; }
+    .slide-mehndi .event-loc { color: #265c47; }
+
+    .slide-mehndi .pill-btn-outline {
+      color: #14533c;
+      border-color: #d97706;
+      background: #fffdf7;
+    }
+
+    .slide-mehndi .pill-btn-outline:hover {
+      background: #14533c;
+      color: #fef9ec;
+      border-color: #14533c;
+    }
+
+    .slide-baraat {
+      background: radial-gradient(circle at top, #fff7f8 0%, #fdefef 62%, #f8dfe3 100%);
+    }
+
+    .slide-baraat .event-crest-medallion {
+      color: #c89d54;
+      background: radial-gradient(circle at 30% 30%, #fffdf9 0%, #fbe9ec 65%, #f4d2d8 100%);
+      border: 1.5px solid #c89d54;
+      box-shadow: 0 6px 16px rgba(124, 19, 36, 0.15), inset 0 0 0 2px rgba(124, 19, 36, 0.12);
+    }
+
+    .slide-baraat .event-badge {
+      color: #7c1324;
+      background: rgba(200, 157, 84, 0.2);
+      border-color: rgba(124, 19, 36, 0.45);
+    }
+
+    .slide-baraat .event-title { color: #7c1324; }
+    .slide-baraat .event-time { color: #9f1239; }
+    .slide-baraat .event-loc { color: #6e3540; }
+
+    .slide-baraat .pill-btn-outline {
+      color: #7c1324;
+      border-color: #c89d54;
+      background: #fffdfd;
+    }
+
+    .slide-baraat .pill-btn-outline:hover {
+      background: #7c1324;
+      color: #fcf6ba;
+      border-color: #7c1324;
+    }
+
+    .slide-valima {
+      background: radial-gradient(circle at top, #f6faff 0%, #eaf2fb 62%, #dce8f6 100%);
+    }
+
+    .slide-valima .event-crest-medallion {
+      color: #b8893a;
+      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e8f1fb 65%, #d3e3f6 100%);
+      border: 1.5px solid #b8893a;
+      box-shadow: 0 6px 16px rgba(22, 56, 99, 0.15), inset 0 0 0 2px rgba(22, 56, 99, 0.12);
+    }
+
+    .slide-valima .event-badge {
+      color: #163863;
+      background: rgba(184, 137, 58, 0.18);
+      border-color: rgba(22, 56, 99, 0.42);
+    }
+
+    .slide-valima .event-title { color: #163863; }
+    .slide-valima .event-time { color: #1e4b82; }
+    .slide-valima .event-loc { color: #395575; }
+
+    .slide-valima .pill-btn-outline {
+      color: #163863;
+      border-color: #b8893a;
+      background: #fcfeff;
+    }
+
+    .slide-valima .pill-btn-outline:hover {
+      background: #163863;
+      color: #f6faff;
+      border-color: #163863;
+    }
+
+    /* Refined Pill Buttons */
+    .pill-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--ivory-card);
+      color: var(--burgundy);
+      border: 1px solid var(--gold);
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .pill-btn-outline:hover {
+      background: var(--burgundy);
+      color: var(--ivory-card);
+    }
+
+    .pill-btn-outline:active { transform: scale(0.96); }
+
+    .pill-btn-primary {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--burgundy);
+      color: var(--gold-soft);
+      border: 1px solid var(--gold);
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(92, 17, 30, 0.22);
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .pill-btn-primary:hover { background: var(--burgundy-deep); }
+    .pill-btn-primary:active { transform: scale(0.97); }
+
+    /* Minimal Floating Music Toggle */
+    .music-pill {
+      position: fixed;
+      bottom: 20px;
+      right: max(20px, calc(50vw - 202px));
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gold);
+      color: var(--burgundy);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease;
+    }
+
+    .music-pill:active { transform: scale(0.95); }
+
+    .eq-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+      direction: ltr;
+    }
+
+    .eq-bars span {
+      width: 2px;
+      height: 4px;
+      background: var(--burgundy);
+      border-radius: 2px;
+    }
+
+    .music-pill.playing .eq-bars span:nth-child(1) { animation: eq 0.55s ease-in-out infinite alternate; }
+    .music-pill.playing .eq-bars span:nth-child(2) { animation: eq 0.4s ease-in-out infinite alternate 0.15s; }
+    .music-pill.playing .eq-bars span:nth-child(3) { animation: eq 0.65s ease-in-out infinite alternate 0.3s; }
+
+    @keyframes eq {
+      from { height: 3px; }
+      to { height: 12px; }
+    }
+
+    /* Toast Notification */
+    #toastMsg {
+      position: fixed;
+      bottom: 68px;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--burgundy-deep);
+      color: var(--gold-soft);
+      border: 1px solid var(--gold);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    #toastMsg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="card-shell">
+    <div class="hairline-frame"></div>
+    <canvas id="celebrationCanvas" aria-hidden="true"></canvas>
+
+    <!-- =======================================================
+         1. ULTRA-ORNATE ROYAL MUGHAL-PALACE ENVELOPE
+    ======================================================== -->
+    <div id="envelopeOverlay" role="dialog" aria-label="شادی کا لفافہ کھولیں">
+      <div class="velvet-liner"></div>
+      <canvas id="envGoldDust"></canvas>
+
+      <div class="env-flap env-flap-left"></div>
+      <div class="env-flap env-flap-right"></div>
+      <div class="env-flap env-flap-bottom"></div>
+      <div class="env-flap env-flap-top"></div>
+
+      <!-- Artistic Scalloped Mughal Arch Foil, Pearl Dots, Tassels & Multi-Floral Garlands -->
+      <svg class="env-art-svg" viewBox="0 0 440 800" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="goldFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8c6628" />
+            <stop offset="28%" stop-color="#fcf6ba" />
+            <stop offset="52%" stop-color="#c89d54" />
+            <stop offset="78%" stop-color="#f5e1a4" />
+            <stop offset="100%" stop-color="#8c6628" />
+          </linearGradient>
+          <radialGradient id="crimsonRoseGrad" cx="38%" cy="32%" r="68%">
+            <stop offset="0%" stop-color="#e35d73" />
+            <stop offset="55%" stop-color="#9b1b30" />
+            <stop offset="100%" stop-color="#4e0916" />
+          </radialGradient>
+          <radialGradient id="blushRoseGrad" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#fff5f6" />
+            <stop offset="52%" stop-color="#eab5bc" />
+            <stop offset="100%" stop-color="#b46572" />
+          </radialGradient>
+          <radialGradient id="marigoldGrad" cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#fff0a6" />
+            <stop offset="55%" stop-color="#f2a93b" />
+            <stop offset="100%" stop-color="#b86514" />
+          </radialGradient>
+          <radialGradient id="goldLeafGrad" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#fcf6ba" />
+            <stop offset="65%" stop-color="#c89d54" />
+            <stop offset="100%" stop-color="#7d591f" />
+          </radialGradient>
+        </defs>
+
+        <!-- Outer Triple 24K Gold Border & Pearl-Beaded Perimeter -->
+        <rect x="10" y="10" width="420" height="780" rx="22" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2.2" />
+        <rect x="16" y="16" width="408" height="768" rx="17" fill="none" stroke="#fffdf9" stroke-width="1.4" stroke-dasharray="0.5 5.5" stroke-linecap="round" />
+        <rect x="22" y="22" width="396" height="756" rx="14" fill="none" stroke="url(#goldFoilGrad)" stroke-width="0.95" stroke-opacity="0.85" />
+
+        <!-- Ornate Mughal Filigree Corner Brackets -->
+        <g stroke="url(#goldFoilGrad)" stroke-width="1.4" fill="none">
+          <path d="M26,88 L26,26 L88,26 M26,56 Q56,56 56,26" />
+          <path d="M414,88 L414,26 L352,26 M414,56 Q384,56 384,26" />
+          <path d="M26,712 L26,774 L88,774 M26,744 Q56,744 56,774" />
+          <path d="M414,712 L414,774 L352,774 M414,744 Q384,744 384,774" />
+        </g>
+
+        <!-- Scalloped Mughal Arch Silhouette on Top Flap Edged in Gold Foil & Pearl Dots -->
+        <path d="M 0 165 Q 95 315 220 432 Q 345 315 440 165" fill="none" stroke="url(#goldFoilGrad)" stroke-width="3.2" />
+        <path d="M 0 154 Q 95 303 220 418 Q 345 303 440 154" fill="none" stroke="#fffdf9" stroke-width="1.8" stroke-dasharray="0.5 6" stroke-linecap="round" />
+        <path d="M 0 144 Q 95 291 220 404 Q 345 291 440 144" fill="none" stroke="url(#goldFoilGrad)" stroke-width="0.95" stroke-opacity="0.85" />
+
+        <!-- Hanging Ruby & 24K Gold Mughal Tassels (Latkans) Along Flap Curve -->
+        <g class="latkan-sway">
+          <line x1="94" y1="274" x2="94" y2="310" stroke="url(#goldFoilGrad)" stroke-width="1.3" />
+          <circle cx="94" cy="285" r="2.6" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+          <polygon points="94,291 89,299 94,307 99,299" fill="url(#crimsonRoseGrad)" stroke="#fcf6ba" stroke-width="0.8" />
+          <path d="M90,308 L88,322 M94,308 L94,324 M98,308 L100,322" stroke="#c89d54" stroke-width="1.1" stroke-linecap="round" />
+        </g>
+        <g class="latkan-sway-delay">
+          <line x1="346" y1="274" x2="346" y2="310" stroke="url(#goldFoilGrad)" stroke-width="1.3" />
+          <circle cx="346" cy="285" r="2.6" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+          <polygon points="346,291 341,299 346,307 351,299" fill="url(#crimsonRoseGrad)" stroke="#fcf6ba" stroke-width="0.8" />
+          <path d="M342,308 L340,322 M346,308 L346,324 M350,308 L352,322" stroke="#c89d54" stroke-width="1.1" stroke-linecap="round" />
+        </g>
+
+        <!-- Bottom & Side Flap Gold-Foil Seams -->
+        <polyline points="0,800 220,376 440,800" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2" />
+        <polyline points="16,800 220,400 424,800" fill="none" stroke="#fffdf9" stroke-width="1.3" stroke-dasharray="0.5 5.5" stroke-linecap="round" />
+        <line x1="0" y1="0" x2="205" y2="400" stroke="url(#goldFoilGrad)" stroke-width="1" stroke-opacity="0.65" />
+        <line x1="440" y1="0" x2="235" y2="400" stroke="url(#goldFoilGrad)" stroke-width="1" stroke-opacity="0.65" />
+
+        <!-- Lavish Crimson Rose, Marigold, Jasmine & Gold Botanical Garland (Top Left) -->
+        <g class="botanical-bloom">
+          <path d="M24,148 C26,82 62,34 142,24" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.5" />
+          <path d="M34,110 C16,104 14,88 31,90 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M56,68 C42,50 52,36 66,50 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M98,38 C94,20 110,16 114,32 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M48,92 C66,96 68,110 50,106 Z" fill="url(#goldLeafGrad)" opacity="0.82" />
+          <!-- Deep Crimson Royal Rose -->
+          <circle cx="48" cy="54" r="19" fill="url(#crimsonRoseGrad)" />
+          <path d="M39,54 C39,45 57,45 57,54 C57,62 41,62 41,54 C41,48 53,48 53,54" fill="none" stroke="#fcf6ba" stroke-width="1" stroke-opacity="0.7" />
+          <!-- Marigold & Blush Rosebuds + Ivory Jasmine -->
+          <circle cx="84" cy="36" r="12.5" fill="url(#marigoldGrad)" />
+          <circle cx="33" cy="86" r="11" fill="url(#blushRoseGrad)" />
+          <circle cx="67" cy="70" r="8.5" fill="url(#blushRoseGrad)" />
+          <circle cx="122" cy="27" r="4" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+          <circle cx="27" cy="124" r="4" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+        </g>
+
+        <!-- Lavish Crimson Rose, Marigold, Jasmine & Gold Botanical Garland (Top Right) -->
+        <g class="botanical-bloom">
+          <path d="M416,148 C414,82 378,34 298,24" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.5" />
+          <path d="M406,110 C424,104 426,88 409,90 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M384,68 C398,50 388,36 374,50 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M342,38 C346,20 330,16 326,32 Z" fill="url(#goldLeafGrad)" opacity="0.92" />
+          <path d="M392,92 C374,96 372,110 390,106 Z" fill="url(#goldLeafGrad)" opacity="0.82" />
+          <!-- Deep Crimson Royal Rose -->
+          <circle cx="392" cy="54" r="19" fill="url(#crimsonRoseGrad)" />
+          <path d="M383,54 C383,45 401,45 401,54 C401,62 385,62 385,54 C385,48 397,48 397,54" fill="none" stroke="#fcf6ba" stroke-width="1" stroke-opacity="0.7" />
+          <!-- Marigold & Blush Rosebuds + Ivory Jasmine -->
+          <circle cx="356" cy="36" r="12.5" fill="url(#marigoldGrad)" />
+          <circle cx="407" cy="86" r="11" fill="url(#blushRoseGrad)" />
+          <circle cx="373" cy="70" r="8.5" fill="url(#blushRoseGrad)" />
+          <circle cx="318" cy="27" r="4" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+          <circle cx="413" cy="124" r="4" fill="#fffdf9" stroke="#c89d54" stroke-width="0.9" />
+        </g>
+
+        <!-- Lower Floral-Botanical Framing Clusters Around Nameplate -->
+        <g class="botanical-bloom">
+          <!-- Bottom Left Floral Spray -->
+          <path d="M25,676 C28,738 56,772 132,776" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.4" />
+          <path d="M34,718 C16,722 18,738 35,734 Z" fill="url(#goldLeafGrad)" opacity="0.9" />
+          <path d="M72,764 C70,780 86,784 88,768 Z" fill="url(#goldLeafGrad)" opacity="0.9" />
+          <circle cx="44" cy="752" r="16" fill="url(#crimsonRoseGrad)" />
+          <circle cx="72" cy="768" r="10.5" fill="url(#marigoldGrad)" />
+          <circle cx="32" cy="722" r="9.5" fill="url(#blushRoseGrad)" />
+          <circle cx="104" cy="774" r="3.5" fill="#fffdf9" stroke="#c89d54" stroke-width="0.8" />
+
+          <!-- Bottom Right Floral Spray -->
+          <path d="M415,676 C412,738 384,772 308,776" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.4" />
+          <path d="M406,718 C424,722 422,738 405,734 Z" fill="url(#goldLeafGrad)" opacity="0.9" />
+          <path d="M368,764 C370,780 354,784 352,768 Z" fill="url(#goldLeafGrad)" opacity="0.9" />
+          <circle cx="396" cy="752" r="16" fill="url(#crimsonRoseGrad)" />
+          <circle cx="368" cy="768" r="10.5" fill="url(#marigoldGrad)" />
+          <circle cx="408" cy="722" r="9.5" fill="url(#blushRoseGrad)" />
+          <circle cx="336" cy="774" r="3.5" fill="#fffdf9" stroke="#c89d54" stroke-width="0.8" />
+        </g>
+      </svg>
+
+      <!-- Top Celestial Mughal Dome & Calligraphy Crest -->
+      <div class="env-top-crest">
+        <svg class="w-16 h-3.5 mx-auto -mt-1 mb-0.5 text-[#c89d54]" viewBox="0 0 80 18" fill="none" aria-hidden="true">
+          <path d="M8 16 Q26 16 40 3 Q54 16 72 16" stroke="currentColor" stroke-width="1.3" fill="none" />
+          <circle cx="40" cy="2.5" r="2" fill="currentColor" />
+        </svg>
+        <div class="font-arabic text-xl text-[#5c111e] leading-snug">بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</div>
+        <div class="text-[12.5px] font-bold text-[#8c6628] mt-1 tracking-wide">
+          شادی خانہ آبادی • ذیشان و مصباح
+        </div>
+      </div>
+
+      <!-- Centerpiece Hand-Sculpted Wax Seal with Sunburst Rays & Miniature Royal Crown -->
+      <div class="seal-wrapper">
+        <div class="seal-sunburst-rays"></div>
+        <div class="seal-ambient-halo"></div>
+        <div class="seal-filigree-orbit"></div>
+        <div class="seal-filigree-inner"></div>
+
+        <button type="button" id="unsealBtn" class="wax-seal-btn" aria-label="دعوت نامہ کھولیں">
+          <!-- Miniature Royal Mughal Crown Embossed Above Monogram -->
+          <svg class="w-7 h-4 mb-0.5 drop-shadow" viewBox="0 0 36 20" fill="none" aria-hidden="true">
+            <path d="M4 16 L6 6 L13 11 L18 3 L23 11 L30 6 L32 16 Z" fill="#fcf6ba" stroke="#c89d54" stroke-width="1" stroke-linejoin="round" />
+            <circle cx="6" cy="5" r="1.5" fill="#fcf6ba" />
+            <circle cx="18" cy="2" r="1.8" fill="#fcf6ba" />
+            <circle cx="30" cy="5" r="1.5" fill="#fcf6ba" />
+            <line x1="5" y1="18" x2="31" y2="18" stroke="#fcf6ba" stroke-width="1.3" stroke-linecap="round" />
+          </svg>
+          <span class="font-script text-[35px] leading-none drop-shadow" dir="ltr">Z &amp; M</span>
+          <span class="text-[11px] mt-1 tracking-widest font-bold text-[#fcf6ba]">کھولیں</span>
+        </button>
+      </div>
+
+      <!-- Bottom Embossed Ivory-Silk Poetic Nameplate -->
+      <div class="env-bottom-plate">
+        <div class="flex items-center justify-center gap-2 text-[11px] text-[#8c6628] font-bold">
+          <span>✦</span>
+          <span>خاص دعوت نامہ</span>
+          <span>✦</span>
+        </div>
+        <div class="text-base font-bold text-[#5c111e] mt-0.5">
+          ذیشان &amp; مصباح
+        </div>
+        <p class="text-[12.5px] font-semibold text-[#5c111e]/90 mt-1">
+          دو دلوں کی دھڑکن، ایک حسیں سفر کا آغاز
+        </p>
+        <p class="mt-1 text-[11px] text-[#766158]">
+          مہر پر کلک کریں یا اوپر کھینچیں
+        </p>
+      </div>
+    </div>
+
+    <!-- =======================================================
+         2. SERENE MAIN INVITATION CONTENT (INTACT)
+    ======================================================== -->
+    <main class="main-flow" id="mainFlow">
+      <!-- Minimalist Royal Archway Hero -->
+      <section class="royal-arch">
+        <p class="text-xs font-bold text-[#8c6628] tracking-widest">شادی خانہ آبادی</p>
+
+        <div class="inline-block mt-2.5 px-4 py-1 rounded-full border border-[#c89d54]/65 bg-[#fcf9f4] font-serif-lux font-semibold text-sm tracking-[0.22em] text-[#5c111e]" dir="ltr">
+          24 • 12 • 2026
+        </div>
+
+        <h1 class="mt-4 text-4xl font-bold text-[#5c111e] leading-relaxed">
+          ذیشان
+          <span class="font-script text-3xl text-[#c89d54] mx-2">&amp;</span>
+          مصباح
+        </h1>
+        <p class="font-script text-3xl text-[#766158] -mt-1" dir="ltr">Zeeshan &amp; Misbah</p>
+
+        <!-- Serene Minimalist Line-Art White Swans on Golden Ripples -->
+        <div class="mt-6 pt-3">
+          <svg class="swans-float w-48 h-20 mx-auto" viewBox="0 0 220 90" fill="none">
+            <path d="M36 74 Q73 69 110 74 T184 74" stroke="#c89d54" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M62 80 Q110 76 158 80" stroke="#c89d54" stroke-width="0.9" stroke-opacity="0.6" stroke-linecap="round" />
+            <!-- Minimal Heart -->
+            <path d="M110 24 C107 19, 99 20, 99 27 C99 33, 110 40, 110 40 C110 40, 121 33, 121 27 C121 20, 113 19, 110 24 Z" stroke="#5c111e" stroke-width="1.2" fill="#5c111e" fill-opacity="0.12" />
+            <!-- Left Swan -->
+            <path d="M56 68 C48 58, 55 45, 70 48 C80 50, 86 41, 85 30 C84 21, 91 17, 97 22 C99 25, 98 30, 94 30 C90 30, 89 38, 92 48 C95 58, 88 69, 71 70 Z" fill="#fffdf9" stroke="#c89d54" stroke-width="1.3" />
+            <!-- Right Swan -->
+            <path d="M164 68 C172 58, 165 45, 150 48 C140 50, 134 41, 135 30 C136 21, 129 17, 123 22 C121 25, 122 30, 126 30 C130 30, 131 38, 128 48 C125 58, 132 69, 149 70 Z" fill="#fffdf9" stroke="#c89d54" stroke-width="1.3" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- Bismillah, Invitation & Live Countdown -->
+      <section class="clean-section">
+        <div class="font-arabic text-3xl text-[#5c111e]">بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</div>
+        <div class="hairline-divider">✦</div>
+        <p class="text-[15px] leading-9 text-[#2c1d18]">
+          دو دلوں کا حسین سنگم، ایک نئی زندگی کا آغاز<br />
+          اللہ تعالیٰ کے فضل و کرم سے ہم آپ کو اپنے عزیز<br />
+          <strong class="text-[#5c111e] text-lg">ذیشان</strong> اور <strong class="text-[#5c111e] text-lg">مصباح</strong><br />
+          کی پُرمسرت تقریباتِ شادی میں شرکت کی پُرخلوص دعوت دیتے ہیں۔
+        </p>
+
+        <div class="hairline-divider mt-5">❖</div>
+        <p class="text-xs text-[#766158] mb-3">روانگیِ بارات (24 دسمبر 2026) میں باقی وقت</p>
+
+        <div class="grid grid-cols-4 gap-2.5" dir="ltr">
+          <div class="rounded-2xl border border-[#c89d54]/45 bg-[#fcf9f4] py-2.5 px-1">
+            <div id="cdDays" class="font-serif-lux text-2xl font-bold text-[#5c111e]">00</div>
+            <div class="text-[11px] text-[#766158] mt-0.5">دن</div>
+          </div>
+          <div class="rounded-2xl border border-[#c89d54]/45 bg-[#fcf9f4] py-2.5 px-1">
+            <div id="cdHours" class="font-serif-lux text-2xl font-bold text-[#5c111e]">00</div>
+            <div class="text-[11px] text-[#766158] mt-0.5">گھنٹے</div>
+          </div>
+          <div class="rounded-2xl border border-[#c89d54]/45 bg-[#fcf9f4] py-2.5 px-1">
+            <div id="cdMins" class="font-serif-lux text-2xl font-bold text-[#5c111e]">00</div>
+            <div class="text-[11px] text-[#766158] mt-0.5">منٹ</div>
+          </div>
+          <div class="rounded-2xl border border-[#c89d54]/45 bg-[#fcf9f4] py-2.5 px-1">
+            <div id="cdSecs" class="font-serif-lux text-2xl font-bold text-[#5c111e]">00</div>
+            <div class="text-[11px] text-[#766158] mt-0.5">سیکنڈ</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clean Swipeable Event Switcher -->
+      <section class="clean-section">
+        <h2 class="text-xl font-bold text-[#5c111e]">تقریبات کا شیڈول</h2>
+        <p class="text-xs text-[#766158] mt-1">تقریب منتخب کریں یا کارڈ کو دائیں بائیں کھینچیں</p>
+
+        <div class="segmented-tabs" role="tablist">
+          <div class="tab-pill theme-mehndi" id="tabPill"></div>
+          <button type="button" class="tab-btn active" data-slide="0">
+            <!-- Mini Henna Leaf & Marigold Tab Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21c-4.5-3.2-7-7.2-7-11.2C5 6 8.2 3 12 3s7 3 7 6.8c0 4-2.5 8-7 11.2z" />
+              <path d="M12 7v11M9 11l3-2 3 2M9 14.5l3-2 3 2" />
+            </svg>
+            <span>مہندی</span>
+          </button>
+          <button type="button" class="tab-btn" data-slide="1">
+            <!-- Mini Royal Mughal Crown/Turban Tab Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 17l2-9 6 4 6-4 2 9H4z" />
+              <path d="M12 3v4M9 5h6M4 20h16" />
+            </svg>
+            <span>بارات</span>
+          </button>
+          <button type="button" class="tab-btn" data-slide="2">
+            <!-- Mini Mughal Chandelier / Royal Dome Tab Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v3M5 13a7 7 0 0 1 14 0H5z" />
+              <path d="M3 16h18M7 16v3M12 16v4M17 16v3" />
+            </svg>
+            <span>ولیمہ</span>
+          </button>
+        </div>
+
+        <div class="swipe-viewport theme-mehndi" id="swipeViewport">
+          <div class="swipe-track" id="swipeTrack">
+            <!-- Event 1: Mehndi (Henna Emerald & Marigold Saffron) -->
+            <div class="event-slide slide-mehndi">
+              <div class="event-crest-medallion" aria-hidden="true">
+                <!-- Custom Illustrated Henna Leaf, Dholak & Marigold Blossom SVG -->
+                <svg class="w-10 h-10" viewBox="0 0 48 48" fill="none">
+                  <!-- Henna Paisley / Leaf -->
+                  <path d="M17 34C11 29 9 21 13 14C16 9 22 8 24 12C25 15 22 18 20 18C18 18 17 22 19 26C21 29 20 33 17 34Z" fill="#14533c" fill-opacity="0.18" stroke="#14533c" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="15" cy="21" r="1.4" fill="#d97706" />
+                  <circle cx="16.5" cy="26" r="1.2" fill="#d97706" />
+                  <!-- Festive Dholak -->
+                  <ellipse cx="30" cy="27" rx="8.5" ry="5.5" transform="rotate(-22 30 27)" fill="#fef3c7" stroke="#b45309" stroke-width="1.6" />
+                  <path d="M23.5 24.5L34.5 31M25.5 22L36.5 28.5" stroke="#14533c" stroke-width="1.3" stroke-linecap="round" />
+                  <!-- Marigold Blossom -->
+                  <circle cx="33" cy="14" r="5" fill="#f59e0b" stroke="#b45309" stroke-width="1.2" />
+                  <circle cx="33" cy="14" r="2" fill="#fef3c7" />
+                </svg>
+              </div>
+              <span class="event-badge inline-block text-[11px] font-bold border rounded-full px-3.5 py-0.5 mb-2">پہلی تقریب • شبِ حنا</span>
+              <h3 class="event-title text-xl font-bold">رسمِ مہندی</h3>
+              <p class="event-time text-sm font-semibold mt-1.5">بدھ، 23 دسمبر 2026 • رات 8:00 بجے</p>
+              <p class="event-loc text-xs mt-1">بمقام: اسلم آباد کالونی، سلانوالی</p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <a class="pill-btn-outline" href="https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ7ytbWoXXIzkRB62ywDGCOKk" target="_blank" rel="noopener noreferrer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z" />
+                    <circle cx="12" cy="11" r="2.2" />
+                  </svg>
+                  <span>گوگل میپ</span>
+                </a>
+                <button type="button" class="pill-btn-outline" data-ics="mehndi">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="17" rx="3" />
+                    <path d="M8 2v4M16 2v4M3 10h18" />
+                  </svg>
+                  <span>کیلنڈر میں محفوظ کریں</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Event 2: Baraat (Royal Crimson & Antique Gold) -->
+            <div class="event-slide slide-baraat">
+              <div class="event-crest-medallion" aria-hidden="true">
+                <!-- Custom Illustrated Royal Mughal Turban / Sehra & Rose Garland SVG -->
+                <svg class="w-10 h-10" viewBox="0 0 48 48" fill="none">
+                  <!-- Kalgi / Royal Plume -->
+                  <path d="M24 16C24 10 28 7 31 8C29 11 27 14 25 16" stroke="#c89d54" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="24" cy="17" r="2.3" fill="#c89d54" />
+                  <!-- Mughal Turban Folds -->
+                  <path d="M12 26C12 19.5 17.5 15 24 15C30.5 15 36 19.5 36 26C36 28.5 33.5 30 30 30H18C14.5 30 12 28.5 12 26Z" fill="#7c1324" fill-opacity="0.16" stroke="#7c1324" stroke-width="1.6" />
+                  <path d="M14 23.5Q24 19 34 23.5M15 27Q24 22.5 33 27" stroke="#c89d54" stroke-width="1.3" stroke-linecap="round" />
+                  <!-- Sehra Pearl Strands -->
+                  <path d="M17 30v7M21 30v9M24 30v10M27 30v9M31 30v7" stroke="#c89d54" stroke-width="1.3" stroke-dasharray="1.5 2.2" stroke-linecap="round" />
+                  <!-- Crimson Rose Accent -->
+                  <circle cx="15" cy="27" r="3" fill="#9f1239" stroke="#fcf6ba" stroke-width="0.9" />
+                </svg>
+              </div>
+              <span class="event-badge inline-block text-[11px] font-bold border rounded-full px-3.5 py-0.5 mb-2">مرکزی تقریب • شاہی بارات</span>
+              <h3 class="event-title text-xl font-bold">روانگیِ بارات</h3>
+              <p class="event-time text-sm font-semibold mt-1.5">جمعرات، 24 دسمبر 2026 • صبح 9:00 بجے</p>
+              <p class="event-loc text-xs mt-1">بمقام: سرفراز کالونی، جوہرآباد</p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <a class="pill-btn-outline" href="https://www.google.com/maps/search/?api=1&query=Sarfraz+Colony+Jauharabad" target="_blank" rel="noopener noreferrer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z" />
+                    <circle cx="12" cy="11" r="2.2" />
+                  </svg>
+                  <span>گوگل میپ</span>
+                </a>
+                <button type="button" class="pill-btn-outline" data-ics="baraat">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="17" rx="3" />
+                    <path d="M8 2v4M16 2v4M3 10h18" />
+                  </svg>
+                  <span>کیلنڈر میں محفوظ کریں</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Event 3: Valima (Royal Sapphire & Champagne Pearl) -->
+            <div class="event-slide slide-valima">
+              <div class="event-crest-medallion" aria-hidden="true">
+                <!-- Custom Illustrated Royal Mughal Chandelier & Banquet Dome SVG -->
+                <svg class="w-10 h-10" viewBox="0 0 48 48" fill="none">
+                  <!-- Chandelier Chain & Finial -->
+                  <line x1="24" y1="6" x2="24" y2="12" stroke="#b8893a" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="24" cy="13.5" r="2" fill="#b8893a" />
+                  <!-- Mughal Banquet Cloche / Dome -->
+                  <path d="M11 28C11 20.5 16.8 15 24 15C31.2 15 37 20.5 37 28H11Z" fill="#163863" fill-opacity="0.14" stroke="#163863" stroke-width="1.6" stroke-linejoin="round" />
+                  <path d="M9 31h30" stroke="#b8893a" stroke-width="1.8" stroke-linecap="round" />
+                  <!-- Hanging Pearl & Sapphire Drops -->
+                  <path d="M15 31v5M24 31v7M33 31v5" stroke="#b8893a" stroke-width="1.3" stroke-linecap="round" />
+                  <circle cx="15" cy="37.5" r="1.6" fill="#163863" />
+                  <circle cx="24" cy="39.5" r="2" fill="#b8893a" />
+                  <circle cx="33" cy="37.5" r="1.6" fill="#163863" />
+                </svg>
+              </div>
+              <span class="event-badge inline-block text-[11px] font-bold border rounded-full px-3.5 py-0.5 mb-2">دعوتِ طعام • جشنِ ولیمہ</span>
+              <h3 class="event-title text-xl font-bold">دعوتِ ولیمہ</h3>
+              <p class="event-time text-sm font-semibold mt-1.5">جمعہ، 25 دسمبر 2026 • دوپہر 1:00 بجے</p>
+              <p class="event-loc text-xs mt-1">بمقام: لیوش مارکی (Lavish Marquee)، سلانوالی</p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <a class="pill-btn-outline" href="https://www.google.com/maps/search/?api=1&query=Lavish+Marquee+Sillanwali" target="_blank" rel="noopener noreferrer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z" />
+                    <circle cx="12" cy="11" r="2.2" />
+                  </svg>
+                  <span>گوگل میپ</span>
+                </a>
+                <button type="button" class="pill-btn-outline" data-ics="valima">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="17" rx="3" />
+                    <path d="M8 2v4M16 2v4M3 10h18" />
+                  </svg>
+                  <span>کیلنڈر میں محفوظ کریں</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Minimal Slide Dots -->
+        <div class="flex items-center justify-center gap-2 mt-3.5" id="slideDots">
+          <button type="button" class="w-4 h-2 rounded-full bg-[#14533c] transition-all" data-dot="0" aria-label="مہندی"></button>
+          <button type="button" class="w-2 h-2 rounded-full bg-[#c89d54]/40 transition-all" data-dot="1" aria-label="بارات"></button>
+          <button type="button" class="w-2 h-2 rounded-full bg-[#c89d54]/40 transition-all" data-dot="2" aria-label="ولیمہ"></button>
+        </div>
+      </section>
+
+      <!-- Simple RSVP & WhatsApp Share -->
+      <section class="clean-section">
+        <h2 class="text-xl font-bold text-[#5c111e]">تشریف آوری کی اطلاع</h2>
+        <p class="text-xs text-[#766158] mt-1">اپنی شرکت کی تصدیق کے لیے نیچے کلک کریں</p>
+
+        <button type="button" id="openRsvpBtn" class="wax-seal-btn !w-24 !h-24 !rounded-full mx-auto my-4" aria-label="RSVP تصدیق">
+          <span class="font-serif-lux text-base font-bold tracking-widest leading-none">RSVP</span>
+          <span class="text-[10px] mt-1">تصدیق کریں</span>
+        </button>
+
+        <div class="hairline-divider">✦</div>
+
+        <button type="button" id="shareWhatsappBtn" class="pill-btn-primary">
+          <span>📲</span>
+          <span>وٹس ایپ پر دعوت نامہ شیئر کریں</span>
+        </button>
+
+        <p class="mt-5 text-xs font-bold text-[#766158]">
+          منتظرِ دید: اہلِ خانہ و جملہ عزیز و اقارب
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Minimal Floating Music Toggle Pill -->
+  <button type="button" id="musicPillBtn" class="music-pill" aria-label="شادی میوزک">
+    <span class="eq-bars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
+    <span id="musicPillText">میوزک</span>
+  </button>
+
+  <!-- Clean RSVP Modal -->
+  <div id="rsvpModal" class="fixed inset-0 z-[110] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+    <div class="relative w-full max-w-sm rounded-3xl bg-[#fffdf9] border border-[#c89d54] p-6 shadow-2xl">
+      <button type="button" id="closeRsvpBtn" class="absolute top-3.5 left-4 text-2xl text-[#5c111e]" aria-label="بند کریں">&times;</button>
+      <h3 class="text-lg font-bold text-[#5c111e] text-center mb-4">تشریف آوری کی تصدیق</h3>
+      <form id="rsvpForm" class="space-y-3 text-right">
+        <div>
+          <label class="block text-xs font-bold text-[#5c111e] mb-1">آپ کا اسمِ گرامی:</label>
+          <input type="text" id="rsvpName" class="w-full px-3.5 py-2 rounded-xl border border-[#c89d54]/70 bg-[#fcf9f4] text-sm focus:outline-none" placeholder="مثلاً: محمد احمد" required />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-[#5c111e] mb-1">شرکت کی کیفیت:</label>
+          <select id="rsvpStatus" class="w-full px-3.5 py-2 rounded-xl border border-[#c89d54]/70 bg-[#fcf9f4] text-sm focus:outline-none">
+            <option value="ان شاء اللہ ضرور شرکت کریں گے">ان شاء اللہ ضرور شرکت کریں گے</option>
+            <option value="معذرت، شرکت ممکن نہیں">معذرت، شرکت ممکن نہیں</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-[#5c111e] mb-1">مہمانوں کی تعداد:</label>
+          <input type="number" id="rsvpGuests" min="1" max="20" value="2" class="w-full px-3.5 py-2 rounded-xl border border-[#c89d54]/70 bg-[#fcf9f4] text-sm focus:outline-none" />
+        </div>
+        <button type="submit" class="pill-btn-primary mt-2 !py-2.5 !text-sm">
+          <span>📲</span>
+          <span>وٹس ایپ پر تصدیق بھیجیں</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Banner -->
+  <div id="toastMsg" role="status" aria-live="polite"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toastTimer = null;
+      function showToast(text) {
+        var el = document.getElementById('toastMsg');
+        if (!el) return;
+        el.textContent = text;
+        el.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2600);
+      }
+
+      /* =========================================================
+         1. CELEBRATORY WEDDING AUDIO ENGINE (WEB AUDIO SYNTH)
+      ========================================================= */
+      var audioCtx = null;
+      var isPlaying = false;
+      var step = 0;
+      var timerId = null;
+      var melodyNotes = [
+        293.66, 329.63, 369.99, 392.00, 440.00, 493.88, 554.37, 587.33,
+        587.33, 493.88, 440.00, 392.00, 440.00, 369.99, 329.63, 293.66
+      ];
+
+      function initAudio() {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return false;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        return true;
+      }
+
+      function playSoftPulse(now, freq) {
+        if (!audioCtx) return;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq * 1.35, now);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.65, now + 0.2);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.26);
+      }
+
+      function playMelodyTone(freq, now, dur) {
+        if (!audioCtx) return;
+        var osc1 = audioCtx.createOscillator();
+        var osc2 = audioCtx.createOscillator();
+        var filter = audioCtx.createBiquadFilter();
+        var gain = audioCtx.createGain();
+
+        osc1.type = 'triangle';
+        osc2.type = 'sine';
+        osc1.frequency.setValueAtTime(freq, now);
+        osc2.frequency.setValueAtTime(freq * 1.002, now);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(freq * 2.5, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.linearRampToValueAtTime(0.12, now + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+
+        osc1.connect(filter);
+        osc2.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + dur + 0.02);
+        osc2.stop(now + dur + 0.02);
+      }
+
+      function updateMusicUI() {
+        var btn = document.getElementById('musicPillBtn');
+        var txt = document.getElementById('musicPillText');
+        if (!btn || !txt) return;
+        btn.classList.toggle('playing', isPlaying);
+        txt.textContent = isPlaying ? 'میوزک جاری' : 'میوزک';
+      }
+
+      function tickMusic() {
+        if (!isPlaying || !audioCtx) return;
+        try {
+          var now = audioCtx.currentTime;
+          var beat = step % 4;
+          if (beat === 0) playSoftPulse(now, 105);
+          if (beat === 2) playSoftPulse(now, 92);
+
+          if (step % 2 === 0) {
+            var freq = melodyNotes[(step / 2) % melodyNotes.length];
+            playMelodyTone(freq, now, 0.56);
+          }
+          step++;
+        } catch (err) {}
+        timerId = setTimeout(tickMusic, 290);
+      }
+
+      function startMusic() {
+        try {
+          if (!initAudio() || isPlaying) return;
+          isPlaying = true;
+          updateMusicUI();
+          tickMusic();
+        } catch (err) {}
+      }
+
+      function stopMusic() {
+        isPlaying = false;
+        clearTimeout(timerId);
+        updateMusicUI();
+      }
+
+      var musicPillBtn = document.getElementById('musicPillBtn');
+      if (musicPillBtn) {
+        musicPillBtn.addEventListener('click', function () {
+          if (isPlaying) stopMusic();
+          else startMusic();
+        });
+      }
+
+      /* =========================================================
+         2. FLOATING GOLDEN HEART & SPARKLE MOTES + UNSEAL
+      ========================================================= */
+      var overlay = document.getElementById('envelopeOverlay');
+      var unsealBtn = document.getElementById('unsealBtn');
+      var mainFlow = document.getElementById('mainFlow');
+      var opened = false;
+      var touchY = 0;
+
+      var dustCanvas = document.getElementById('envGoldDust');
+      var dustAnimId = null;
+      var motes = [];
+      var sparkles = [];
+
+      function drawMiniHeart(ctx, x, y, size, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.fillStyle = 'rgba(252, 232, 178, ' + alpha.toFixed(2) + ')';
+        ctx.beginPath();
+        ctx.moveTo(0, size * 0.35);
+        ctx.bezierCurveTo(-size, -size * 0.45, -size * 0.45, -size * 1.1, 0, -size * 0.4);
+        ctx.bezierCurveTo(size * 0.45, -size * 1.1, size, -size * 0.45, 0, size * 0.35);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (dustCanvas && dustCanvas.getContext) {
+        var dCtx = dustCanvas.getContext('2d');
+        function sizeDust() {
+          dustCanvas.width = dustCanvas.offsetWidth || 440;
+          dustCanvas.height = dustCanvas.offsetHeight || window.innerHeight;
+        }
+        sizeDust();
+        window.addEventListener('resize', sizeDust);
+
+        for (var mIdx = 0; mIdx < 30; mIdx++) {
+          motes.push({
+            x: Math.random() * dustCanvas.width,
+            y: Math.random() * dustCanvas.height,
+            r: Math.random() * 2.1 + 0.9,
+            vy: -(Math.random() * 0.42 + 0.16),
+            vx: (Math.random() - 0.5) * 0.25,
+            phase: Math.random() * Math.PI * 2,
+            isHeart: mIdx % 4 === 0
+          });
+        }
+
+        function renderDust() {
+          dCtx.clearRect(0, 0, dustCanvas.width, dustCanvas.height);
+
+          if (!opened) {
+            for (var i = 0; i < motes.length; i++) {
+              var p = motes[i];
+              p.y += p.vy;
+              p.x += Math.sin(p.phase) * 0.32 + p.vx;
+              p.phase += 0.025;
+              if (p.y < -12) { p.y = dustCanvas.height + 10; p.x = Math.random() * dustCanvas.width; }
+              var alpha = 0.35 + 0.55 * Math.abs(Math.sin(p.phase));
+              if (p.isHeart) {
+                drawMiniHeart(dCtx, p.x, p.y, p.r * 2.1, alpha * 0.85);
+              } else {
+                dCtx.fillStyle = 'rgba(252, 238, 182, ' + alpha.toFixed(2) + ')';
+                dCtx.beginPath();
+                dCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                dCtx.fill();
+              }
+            }
+          }
+
+          for (var s = sparkles.length - 1; s >= 0; s--) {
+            var sp = sparkles[s];
+            sp.x += sp.vx;
+            sp.y += sp.vy;
+            sp.vy += 0.05;
+            sp.life -= 0.02;
+            if (sp.life <= 0) {
+              sparkles.splice(s, 1);
+              continue;
+            }
+            if (sp.isHeart) {
+              drawMiniHeart(dCtx, sp.x, sp.y, sp.r * 2.2, sp.life);
+            } else {
+              dCtx.fillStyle = 'rgba(252, 246, 186, ' + sp.life.toFixed(2) + ')';
+              dCtx.beginPath();
+              dCtx.arc(sp.x, sp.y, sp.r, 0, Math.PI * 2);
+              dCtx.fill();
+            }
+          }
+
+          if (!opened || sparkles.length > 0) {
+            dustAnimId = requestAnimationFrame(renderDust);
+          }
+        }
+        renderDust();
+      }
+
+      function spawnGoldenSparkleBurst() {
+        if (!dustCanvas) return;
+        var cx = dustCanvas.width / 2;
+        var cy = dustCanvas.height / 2;
+        for (var i = 0; i < 48; i++) {
+          var angle = Math.random() * Math.PI * 2;
+          var speed = 1.4 + Math.random() * 4.6;
+          sparkles.push({
+            x: cx,
+            y: cy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 1.3,
+            r: 1.6 + Math.random() * 2.2,
+            life: 1,
+            isHeart: i % 3 === 0
+          });
+        }
+      }
+
+      /* =========================================================
+         2B. CONTINUOUS FLOWER PETALS & HEARTS SHOWER ON INNER CARD
+      ========================================================= */
+      var celCanvas = document.getElementById('celebrationCanvas');
+      var celCtx = celCanvas && celCanvas.getContext ? celCanvas.getContext('2d') : null;
+      var fallingItems = [];
+      var showerRunning = false;
+
+      var petalPalettes = [
+        { main: '#a81c34', edge: '#690b1b', highlight: '#e3647a' }, // Deep Crimson Rose
+        { main: '#e89aa7', edge: '#c46878', highlight: '#ffd9df' }, // Soft Blush Pink Rose
+        { main: '#f2a83b', edge: '#c47214', highlight: '#ffe29e' }, // Marigold Gold
+        { main: '#fff8ec', edge: '#dfc9a4', highlight: '#ffffff' }  // Ivory Jasmine
+      ];
+
+      var heartPalettes = [
+        { fill: '#b81d38', stroke: '#fcf6ba' }, // Shimmering Ruby Heart
+        { fill: '#d9a441', stroke: '#fff7d6' }, // 24K Gold Heart
+        { fill: '#e06c82', stroke: '#fff0f3' }  // Rose-Gold Blush Heart
+      ];
+
+      function sizeCelebrationCanvas() {
+        if (!celCanvas) return;
+        celCanvas.width = celCanvas.offsetWidth || 440;
+        celCanvas.height = celCanvas.offsetHeight || window.innerHeight;
+      }
+
+      function createFallingItem(startFromTop) {
+        var w = (celCanvas && celCanvas.width) || 440;
+        var h = (celCanvas && celCanvas.height) || window.innerHeight;
+        var isHeart = Math.random() < 0.34;
+        return {
+          x: Math.random() * w,
+          y: startFromTop ? (-15 - Math.random() * 80) : (Math.random() * h - h * 0.25),
+          vy: 0.9 + Math.random() * 1.45,
+          vx: (Math.random() - 0.5) * 0.65,
+          swayPhase: Math.random() * Math.PI * 2,
+          swaySpeed: 0.018 + Math.random() * 0.022,
+          swayAmp: 0.5 + Math.random() * 1.0,
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.045,
+          flipPhase: Math.random() * Math.PI * 2,
+          flipSpeed: 0.03 + Math.random() * 0.04,
+          size: isHeart ? (6 + Math.random() * 5.5) : (7 + Math.random() * 6.5),
+          alpha: 0.72 + Math.random() * 0.26,
+          isHeart: isHeart,
+          palette: isHeart
+            ? heartPalettes[Math.floor(Math.random() * heartPalettes.length)]
+            : petalPalettes[Math.floor(Math.random() * petalPalettes.length)]
+        };
+      }
+
+      function drawFlowerPetal(ctx, item) {
+        var s = item.size;
+        var flipScale = 0.45 + 0.55 * Math.abs(Math.cos(item.flipPhase));
+        ctx.save();
+        ctx.translate(item.x, item.y);
+        ctx.rotate(item.rot);
+        ctx.scale(1, flipScale);
+        ctx.globalAlpha = item.alpha;
+
+        var grad = ctx.createRadialGradient(-s * 0.2, -s * 0.25, s * 0.1, 0, 0, s * 1.15);
+        grad.addColorStop(0, item.palette.highlight);
+        grad.addColorStop(0.55, item.palette.main);
+        grad.addColorStop(1, item.palette.edge);
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(0, -s);
+        ctx.bezierCurveTo(s * 0.95, -s * 0.75, s * 1.05, s * 0.45, 0, s);
+        ctx.bezierCurveTo(-s * 1.05, s * 0.45, -s * 0.95, -s * 0.75, 0, -s);
+        ctx.fill();
+
+        // Delicate central petal vein
+        ctx.strokeStyle = item.palette.highlight;
+        ctx.globalAlpha = item.alpha * 0.35;
+        ctx.lineWidth = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.65);
+        ctx.quadraticCurveTo(s * 0.12, 0, 0, s * 0.7);
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function drawFloatingHeart(ctx, item) {
+        var s = item.size;
+        var flipScale = 0.55 + 0.45 * Math.abs(Math.cos(item.flipPhase));
+        ctx.save();
+        ctx.translate(item.x, item.y);
+        ctx.rotate(Math.sin(item.rot) * 0.35);
+        ctx.scale(flipScale, 1);
+        ctx.globalAlpha = item.alpha;
+
+        ctx.fillStyle = item.palette.fill;
+        ctx.strokeStyle = item.palette.stroke;
+        ctx.lineWidth = 0.85;
+
+        ctx.beginPath();
+        ctx.moveTo(0, s * 0.4);
+        ctx.bezierCurveTo(-s * 1.1, -s * 0.45, -s * 0.5, -s * 1.2, 0, -s * 0.42);
+        ctx.bezierCurveTo(s * 0.5, -s * 1.2, s * 1.1, -s * 0.45, 0, s * 0.4);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function renderCelebrationShower() {
+        if (!showerRunning || !celCtx || !celCanvas) return;
+        var w = celCanvas.width;
+        var h = celCanvas.height;
+        celCtx.clearRect(0, 0, w, h);
+
+        for (var i = 0; i < fallingItems.length; i++) {
+          var item = fallingItems[i];
+          item.swayPhase += item.swaySpeed;
+          item.rot += item.rotSpeed;
+          item.flipPhase += item.flipSpeed;
+          item.y += item.vy;
+          item.x += item.vx + Math.sin(item.swayPhase) * item.swayAmp;
+
+          if (item.y > h + 24) {
+            fallingItems[i] = createFallingItem(true);
+            continue;
+          }
+          if (item.x < -20) item.x = w + 15;
+          if (item.x > w + 20) item.x = -15;
+
+          if (item.isHeart) {
+            drawFloatingHeart(celCtx, item);
+          } else {
+            drawFlowerPetal(celCtx, item);
+          }
+        }
+
+        requestAnimationFrame(renderCelebrationShower);
+      }
+
+      function startContinuousShower() {
+        if (showerRunning || !celCanvas || !celCtx) return;
+        showerRunning = true;
+        sizeCelebrationCanvas();
+        window.addEventListener('resize', sizeCelebrationCanvas);
+        celCanvas.classList.add('active');
+
+        fallingItems = [];
+        for (var i = 0; i < 42; i++) {
+          fallingItems.push(createFallingItem(i < 16));
+        }
+        renderCelebrationShower();
+      }
+
+      function openEnvelope() {
+        if (opened || !overlay) return;
+        opened = true;
+        spawnGoldenSparkleBurst();
+        startMusic();
+        startContinuousShower();
+        overlay.classList.add('opening');
+        setTimeout(function () {
+          if (dustAnimId) cancelAnimationFrame(dustAnimId);
+          overlay.classList.add('dismissed');
+          if (mainFlow) mainFlow.classList.add('revealed');
+        }, 950);
+      }
+
+      if (unsealBtn) unsealBtn.addEventListener('click', openEnvelope);
+
+      if (overlay) {
+        overlay.addEventListener('touchstart', function (e) {
+          if (e.touches && e.touches.length) touchY = e.touches[0].clientY;
+        }, { passive: true });
+
+        overlay.addEventListener('touchend', function (e) {
+          if (e.changedTouches && e.changedTouches.length) {
+            if (touchY - e.changedTouches[0].clientY > 36) openEnvelope();
+          }
+        }, { passive: true });
+      }
+
+      /* =========================================================
+         3. LIVE COUNTDOWN (24 DEC 2026, 9:00 AM PKT)
+      ========================================================= */
+      var targetTime = new Date('2026-12-24T09:00:00+05:00').getTime();
+
+      function updateCountdown() {
+        var diff = Math.max(0, targetTime - Date.now());
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff / 3600000) % 24);
+        var m = Math.floor((diff / 60000) % 60);
+        var s = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('cdDays').textContent = String(d).padStart(2, '0');
+        document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+        document.getElementById('cdMins').textContent = String(m).padStart(2, '0');
+        document.getElementById('cdSecs').textContent = String(s).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      /* =========================================================
+         4. SWIPEABLE & CLICKABLE EVENT TABS
+      ========================================================= */
+      var currentIdx = 0;
+      var track = document.getElementById('swipeTrack');
+      var pill = document.getElementById('tabPill');
+      var viewport = document.getElementById('swipeViewport');
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var dots = document.querySelectorAll('#slideDots button');
+      var themeClasses = ['theme-mehndi', 'theme-baraat', 'theme-valima'];
+      var dotActiveClasses = [
+        'w-4 h-2 rounded-full bg-[#14533c] transition-all',
+        'w-4 h-2 rounded-full bg-[#7c1324] transition-all',
+        'w-4 h-2 rounded-full bg-[#163863] transition-all'
+      ];
+
+      function setSlide(idx) {
+        currentIdx = (idx + 3) % 3;
+        if (track) track.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+        if (pill) {
+          pill.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+          pill.classList.remove('theme-mehndi', 'theme-baraat', 'theme-valima');
+          pill.classList.add(themeClasses[currentIdx]);
+        }
+        if (viewport) {
+          viewport.classList.remove('theme-mehndi', 'theme-baraat', 'theme-valima');
+          viewport.classList.add(themeClasses[currentIdx]);
+        }
+        tabBtns.forEach(function (b, i) { b.classList.toggle('active', i === currentIdx); });
+        dots.forEach(function (d, i) {
+          d.className = i === currentIdx
+            ? dotActiveClasses[currentIdx]
+            : 'w-2 h-2 rounded-full bg-[#c89d54]/40 transition-all';
+        });
+      }
+
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setSlide(parseInt(btn.getAttribute('data-slide'), 10) || 0);
+        });
+      });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          setSlide(parseInt(dot.getAttribute('data-dot'), 10) || 0);
+        });
+      });
+
+      var startX = 0;
+      var dragging = false;
+
+      if (viewport) {
+        viewport.addEventListener('touchstart', function (e) {
+          if (e.touches && e.touches.length) startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', function (e) {
+          if (e.changedTouches && e.changedTouches.length) {
+            var dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 36) setSlide(dx > 0 ? currentIdx + 1 : currentIdx - 1);
+          }
+        }, { passive: true });
+
+        viewport.addEventListener('mousedown', function (e) {
+          dragging = true;
+          startX = e.clientX;
+        });
+
+        window.addEventListener('mouseup', function (e) {
+          if (!dragging) return;
+          dragging = false;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > 36) setSlide(dx > 0 ? currentIdx + 1 : currentIdx - 1);
+        });
+      }
+
+      /* =========================================================
+         5. SAVE TO CALENDAR (.ICS)
+      ========================================================= */
+      var icsData = {
+        mehndi: { title: 'رسمِ مہندی — ذیشان اور مصباح', start: '20261223T200000', end: '20261223T233000', loc: 'اسلم آباد کالونی، سلانوالی' },
+        baraat: { title: 'روانگیِ بارات — ذیشان اور مصباح', start: '20261224T090000', end: '20261224T150000', loc: 'سرفراز کالونی، جوہرآباد' },
+        valima: { title: 'دعوتِ ولیمہ — ذیشان اور مصباح', start: '20261225T130000', end: '20261225T163000', loc: 'لیوش مارکی، سلانوالی' }
+      };
+
+      document.querySelectorAll('[data-ics]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var ev = icsData[btn.getAttribute('data-ics')];
+          if (!ev) return;
+          var content = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'BEGIN:VEVENT',
+            'DTSTART:' + ev.start,
+            'DTEND:' + ev.end,
+            'SUMMARY:' + ev.title,
+            'LOCATION:' + ev.loc,
+            'END:VEVENT',
+            'END:VCALENDAR'
+          ].join('\r\n');
+          var blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'Zeeshan_Misbah_Wedding.ics';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast('📅 تقریب کیلنڈر کے لیے محفوظ ہو گئی!');
+        });
+      });
+
+      /* =========================================================
+         6. RSVP MODAL & WHATSAPP SHARE
+      ========================================================= */
+      var rsvpModal = document.getElementById('rsvpModal');
+      var openRsvpBtn = document.getElementById('openRsvpBtn');
+      var closeRsvpBtn = document.getElementById('closeRsvpBtn');
+
+      if (openRsvpBtn && rsvpModal) {
+        openRsvpBtn.addEventListener('click', function () {
+          rsvpModal.classList.remove('hidden');
+          rsvpModal.classList.add('flex');
+        });
+      }
+
+      if (closeRsvpBtn && rsvpModal) {
+        closeRsvpBtn.addEventListener('click', function () {
+          rsvpModal.classList.add('hidden');
+          rsvpModal.classList.remove('flex');
+        });
+      }
+
+      var rsvpForm = document.getElementById('rsvpForm');
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = (document.getElementById('rsvpName').value || '').trim();
+          var status = document.getElementById('rsvpStatus').value;
+          var guests = document.getElementById('rsvpGuests').value;
+          var text = '💌 *RSVP تصدیق (شادی ذیشان و مصباح)*\nنام: *' + name + '*\nکیفیت: ' + status + '\nمہمانوں کی تعداد: ' + guests;
+          rsvpModal.classList.add('hidden');
+          rsvpModal.classList.remove('flex');
+          window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      var shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
+      if (shareWhatsappBtn) {
+        shareWhatsappBtn.addEventListener('click', function () {
+          var url = window.location.href;
+          var linkPart = url.indexOf('http') === 0 ? ('\n🔗 *ڈیجیٹل کارڈ کھولیں:*\n' + url) : '';
+          var msg =
+            '✨ *شادی خانہ آبادی — ذیشان اور مصباح* ✨\n' +
+            'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ\n\n' +
+            'آپ کو پُرخلوص دعوت دی جاتی ہے:\n' +
+            '🌿 *رسمِ مہندی:* بدھ، 23 دسمبر 2026 • رات 8:00 بجے (اسلم آباد کالونی، سلانوالی)\n' +
+            '🐎 *روانگیِ بارات:* جمعرات، 24 دسمبر 2026 • صبح 9:00 بجے (سرفراز کالونی، جوہرآباد)\n' +
+            '🍽️ *دعوتِ ولیمہ:* جمعہ، 25 دسمبر 2026 • دوپہر 1:00 بجے (لیوش مارکی، سلانوالی)' +
+            linkPart;
+          window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
